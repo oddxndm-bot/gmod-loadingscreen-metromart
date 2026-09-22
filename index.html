@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MetroStroy | Metrostroi</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+    font-family:Arial,Helvetica,sans-serif;color:#fff;
+    background:#08090b url("assets/background.jpg") center/cover no-repeat;
+}
+body:before{
+    content:"";position:fixed;inset:0;
+    background:
+      linear-gradient(90deg,rgba(0,0,0,.84) 0%,rgba(0,0,0,.30) 42%,rgba(0,0,0,.78) 100%),
+      linear-gradient(0deg,rgba(0,0,0,.70),rgba(0,0,0,.12));
+}
+.screen{position:relative;z-index:1;width:100%;height:100%;padding:30px 34px}
+.header{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:2px}
+.logo-box{width:40px;height:40px;border:2px solid rgba(255,255,255,.85);border-radius:9px;display:grid;place-items:center;background:rgba(0,0,0,.25)}
+.header-right{font-size:11px;letter-spacing:1.4px;color:rgba(255,255,255,.5);text-transform:uppercase}
+
+.layout{
+    position:absolute;left:34px;right:34px;top:50%;transform:translateY(-50%);
+    display:grid;grid-template-columns:250px minmax(420px,1fr) 330px;gap:24px;align-items:center;
+}
+.card{
+    background:rgba(8,10,12,.78);border:1px solid rgba(255,255,255,.13);
+    border-radius:18px;box-shadow:0 22px 80px rgba(0,0,0,.45);
+    backdrop-filter:blur(8px);
+}
+.discord{padding:24px;text-align:center}
+.discord h2{font-size:20px;margin:0 0 7px}
+.discord p{font-size:12px;line-height:1.45;color:rgba(255,255,255,.58);margin:0 0 17px}
+.qr{width:170px;height:170px;object-fit:cover;border-radius:10px;background:#fff;padding:5px;display:block;margin:0 auto 16px}
+.discord-note{font-size:10px;color:rgba(255,255,255,.42);letter-spacing:1px;text-transform:uppercase}
+
+.rules{padding:30px 34px}
+.eyebrow{font-size:10px;letter-spacing:2.5px;color:rgba(255,255,255,.45);text-transform:uppercase;margin-bottom:9px}
+h1{margin:0 0 7px;font-size:38px;letter-spacing:-1px}
+.subtitle{margin:0 0 17px;color:rgba(255,255,255,.58);font-size:13px}
+.rule-list{
+    margin:0;padding:0 0 0 21px;max-height:390px;overflow-y:auto;
+    color:rgba(255,255,255,.84);font-size:12.5px;line-height:1.42
+}
+.rule-list li{padding:4px 6px}
+.rule-list strong{color:#fff}
+.notice{margin-top:14px;padding:10px 13px;border-left:3px solid rgba(255,255,255,.72);background:rgba(255,255,255,.05);color:rgba(255,255,255,.57);font-size:10.5px;line-height:1.45}
+
+.team{padding:25px 23px;max-height:570px;overflow:hidden}
+.team-head{display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:15px;margin-bottom:4px}
+.team-head h2{margin:0;font-size:21px}
+.team-head span{font-size:9px;color:rgba(255,255,255,.42);letter-spacing:1.2px;text-transform:uppercase}
+.members{max-height:460px;overflow-y:auto;padding-right:3px}
+.member{padding:10px 1px;border-bottom:1px solid rgba(255,255,255,.06)}
+.member:last-child{border-bottom:0}
+.role{display:block;color:rgba(255,255,255,.4);font-size:9px;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.name{font-size:13px;font-weight:700}
+
+.bottom{position:absolute;left:34px;right:34px;bottom:23px;display:flex;align-items:center;gap:14px}
+.status{font-size:10px;min-width:190px;color:rgba(255,255,255,.58);letter-spacing:.8px;text-transform:uppercase;white-space:nowrap}
+.bar{height:3px;flex:1;max-width:600px;background:rgba(255,255,255,.13);border-radius:99px;overflow:hidden}
+.bar i{display:block;width:38%;height:100%;background:rgba(255,255,255,.85);animation:load 2.2s ease-in-out infinite}
+.map{margin-left:auto;color:rgba(255,255,255,.38);font-size:9px;letter-spacing:1px}
+@keyframes load{0%{transform:translateX(-130%)}50%{transform:translateX(120%)}100%{transform:translateX(280%)}}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:9px}
+
+@media(max-width:1000px){
+ body{overflow:auto}.screen{height:auto;min-height:100%;padding:75px 16px 65px}
+ .layout{position:static;transform:none;display:grid;grid-template-columns:1fr;margin-top:25px}
+ .rules{order:1}.discord{order:2}.team{order:3}.rule-list{max-height:310px}
+ .bottom{left:16px;right:16px}.map{display:none}
+}
+</style>
+</head>
+<body>
+<div class="screen">
+<header class="header">
+  <div class="logo"><div class="logo-box">M</div><span>METROSTROY</span></div>
+  <div class="header-right">Garry's Mod • Metrostroi</div>
+</header>
+
+<main class="layout">
+  <aside class="card discord">
+    <h2>Discord</h2>
+    <p>Подробнее в Discord сервере</p>
+    <img class="qr" src="assets/discord_qr.jpg" alt="QR-код Discord MetroMart">
+    <div class="discord-note">Наведите камеру на QR-код</div>
+  </aside>
+
+  <section class="card rules">
+    <div class="eyebrow">Добро пожаловать на сервер</div>
+    <h1>Правила сервера</h1>
+    <p class="subtitle">Ознакомьтесь с правилами перед началом игры.</p>
+    <ol class="rule-list">
+      <li><strong>Уважение.</strong> Запрещены оскорбления, травля, провокации и намеренное создание конфликтов.</li>
+      <li><strong>Читы и сторонние программы.</strong> Запрещены читы, скрипты, эксплойты и программы, дающие нечестное преимущество.</li>
+      <li><strong>Не мешайте игре.</strong> Запрещены намеренные столкновения, тараны, блокировка путей и создание аварийных ситуаций.</li>
+      <li><strong>Подвижной состав.</strong> Не спавните составы в габарите других поездов или там, где они создают помехи.</li>
+      <li><strong>Стрелки и маршруты.</strong> Не переводите стрелки перед движущимся составом и не нарушайте установленный маршрут.</li>
+      <li><strong>Диспетчер.</strong> При активном ДЦХ соблюдайте его распоряжения, если они не противоречат правилам проекта.</li>
+      <li><strong>Баги.</strong> Запрещено намеренно использовать ошибки карты, игры или аддонов для получения преимущества.</li>
+      <li><strong>Чат и голос.</strong> Запрещены флуд, спам микрофоном, помехи связи и воспроизведение мешающих звуков.</li>
+      <li><strong>Реклама.</strong> Запрещена реклама сторонних проектов, серверов и услуг без разрешения администрации.</li>
+      <li><strong>Администрация.</strong> Запрещено выдавать себя за администратора. Жалобы на решения подаются через установленный канал.</li>
+      <li><strong>Безопасность сервера.</strong> Запрещены действия, способные вызвать краш, массовый сбой или намеренно нарушить работу сервера.</li>
+      <li><strong>Здравый смысл.</strong> Если ситуация не описана отдельно, не мешайте другим игрокам и не ломайте игровой процесс.</li>
+    </ol>
+    <div class="notice">Подключаясь к серверу, вы соглашаетесь соблюдать правила проекта. За нарушения администрация может применить наказание с учётом тяжести ситуации.</div>
+  </section>
+
+  <aside class="card team">
+    <div class="team-head"><h2>MetroMart</h2><span>Состав команды</span></div>
+    <div class="members">
+      <div class="member"><span class="role">Владелец</span><span class="name">NeoForce</span></div>
+      <div class="member"><span class="role">Зам. Владельца</span><span class="name">demid012_</span></div>
+      <div class="member"><span class="role">Главный администратор</span><span class="name">Барсик</span></div>
+      <div class="member"><span class="role">Главный администратор</span><span class="name">Егор_М</span></div>
+      <div class="member"><span class="role">Ревизор</span><span class="name">Dark knight</span></div>
+      <div class="member"><span class="role">Разработчик</span><span class="name">michaelson212400</span></div>
+      <div class="member"><span class="role">Разработчик</span><span class="name">Володя</span></div>
+      <div class="member"><span class="role">Почётный игрок</span><span class="name">kazabovitch</span></div>
+      <div class="member"><span class="role">Почётный игрок</span><span class="name">Эрик</span></div>
+      <div class="member"><span class="role">ТЧМ Машинист</span><span class="name">Ярик</span></div>
+    </div>
+  </aside>
+</main>
+
+<div class="bottom">
+  <div id="status" class="status">Подключение к серверу...</div>
+  <div class="bar"><i></i></div>
+  <div id="map" class="map">METROSTROY</div>
+</div>
+</div>
+
+<script>
+window.GameDetails=function(servername,serverurl,mapname,maxplayers,steamid,gamemode){
+  if(mapname)document.getElementById("map").textContent="КАРТА: "+mapname;
+};
+window.SetStatusChanged=function(status){
+  if(status)document.getElementById("status").textContent=status;
+};
+window.DownloadingFile=function(file){
+  if(file)document.getElementById("status").textContent="Загрузка: "+file;
+};
+window.SetFilesTotal=function(total){};
+window.SetFilesNeeded=function(needed){};
+</script>
+</body>
+</html>
